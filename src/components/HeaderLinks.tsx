@@ -9,7 +9,7 @@ function HeaderLinks({ name, path }: {
     const pathName = usePathname();
     return (
   
-        <Link href={path} className={`relative after:bg-foreground ${pathName === path ? 'active' : ''}`}>
+        <Link href={path} className={`relative outline-none after:bg-primary ${pathName === path ? 'active' : ''}`}>
            
             {name}
           

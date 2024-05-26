@@ -1,11 +1,18 @@
 "use client"
 
 import { useGetAllProductsQuery } from "@/features/apiSlice";
-type ProductsDataType = {
+export type ProductsDataType = {
   id: number;
   price: string;
   name: string;
   api_featured_image: string,
+};
+export type CartProductsType = {
+  id: number;
+  price: number;
+  name: string;
+  api_featured_image: string;
+  quantity: number;
 };
 type HomeStateType = {
   allProductsData: ProductsDataType[];
@@ -13,7 +20,7 @@ type HomeStateType = {
   allProductsDataError: any; // Adjust the error type as per your API response
   allProductsDataIsError: boolean;
 };
-function HomeState(): HomeStateType {
+export function HomeState(): HomeStateType {
   // getting the full products data from our store
   const {
     data: allProductsData,
@@ -29,4 +36,4 @@ function HomeState(): HomeStateType {
   };
 }
 
-export default HomeState
+// export const fetchedData = HomeState()

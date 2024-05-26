@@ -9,6 +9,7 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
+import { playfair } from "@/app/page";
 function Header() {
   const linksObject = [
     {
@@ -29,7 +30,7 @@ function Header() {
   ];
 
   return (
-    <header className="  fixed top-0 left-0 w-full  bg-opacity-10 backdrop-blur-[2px] py-3  desktop:py-4 px-[2.5%] ">
+    <header className=" shadow-md fixed z-[100] top-0 left-0 w-full  bg-opacity-10 bg-background backdrop-blur-[2px] py-3  desktop:py-4 px-[2.5%] ">
       <nav
         aria-label="desktop view"
         className=" items-center   w-full  hidden desktop:flex  justify-between"
@@ -37,7 +38,11 @@ function Header() {
         <nav>
           <Link href="/" className="flex items-center gap-1">
             <Image src="/cosmetics.png" width={40} height={40} alt="Logo" />
-            <h2 className="font-extrabold text-2xl ">Glamora</h2>
+            <h2
+              className={`font-extrabold text-2xl font-playfair ${playfair.variable}`}
+            >
+              GLAMORA{" "}
+            </h2>
           </Link>
         </nav>
         <nav>

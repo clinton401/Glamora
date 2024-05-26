@@ -21,7 +21,12 @@ const config = {
       screens: {
         watches: "270px",
         desktop: "950px",
-        
+      },
+      fontFamily: {
+        playfair: ["var(--font-playfair-display)"],
+      },
+      flexBasis: {
+        "3/5": "60%", // 0.6 or 60% equivalent to 1.2/2
       },
       colors: {
         border: "hsl(var(--border))",
