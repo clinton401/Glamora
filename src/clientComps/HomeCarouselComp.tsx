@@ -39,6 +39,8 @@ function HomeCarouselComp({
     error: specificProductsDataError,
     isError: specificProductsDataIsError,
   } = useGetSpecificProductsQuery(dataFetchingParam, {
+    refetchOnReconnect: false,
+    refetchOnFocus: false,
     skip: !dataFetchingParam,
   });
 
@@ -47,12 +49,11 @@ function HomeCarouselComp({
     isLoading: allProductsDataLoading,
     error: allProductsDataError,
     isError: allProductsDataIsError,
-  } = useGetAllProductsQuery(
-    {},
-    {
-      skip: !!dataFetchingParam,
-    }
-  );
+  } = useGetAllProductsQuery(undefined, {
+    refetchOnReconnect: false,
+    refetchOnFocus: false,
+    skip: !!dataFetchingParam,
+  });
 
   useEffect(() => {
     if (dataFetchingParam) {
@@ -77,9 +78,22 @@ function HomeCarouselComp({
     allProductsDataIsError,
     allProductsDataError,
   ]);
-
+const getErrorMessage = (
+  error: string | FetchBaseQueryError | SerializedError | undefined
+): string => {
+  if (typeof error === "string") {
+    return error;
+  } else if (error && "status" in error) {
+    return `Error ${error.status}: ${JSON.stringify(error.data)}`;
+  } else if (error && "message" in error) {
+    return JSON.stringify(error.message);
+  }
+  return "An unknown error occurred";
+};
   const skeletonArray = Array.from({ length: 10 }, (v, i) => i + 1);
-
+    if (dataError) {
+        throw new Error(getErrorMessage(dataErrorMessage)  || 'An unknown error occurred');
+}
   return (
     <motion.section
       initial="hidden"

@@ -3,7 +3,7 @@ import ImagesComp from "./ImagesComp";
 import TooltipComp from "./TooltipComp";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
-import type { ProductsDataType } from "@/clientComps/HomeState";
+import type { ProductsDataType, CartProductsType } from "@/clientComps/HomeState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -12,11 +12,12 @@ import { useAppDispatch, useAppSelector } from "@/features/Hooks";
 import { selectCart, addToCart, removeFromCart } from "@/features/cartSlice";
 
 function DataCard({ id, price, name, api_featured_image }: ProductsDataType) {
-    const [isAddedToCart, setIsAddedToCart] = useState(false)
+    const [isAddedToCart, setIsAddedToCart] = useState(false);
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
   const dispatch = useAppDispatch();
   const cartProducts = useAppSelector(selectCart);
   const { toast } = useToast();
-  console.log(cartProducts);
+  console.log({cartProducts});
   const cartPropsObj = {
     id,
     price: price && price !== "0.0" ? Number(price) : 10,
@@ -34,25 +35,37 @@ function DataCard({ id, price, name, api_featured_image }: ProductsDataType) {
     // function to chec if the product is added to cart
     function checkIfAddedToCart() {
         if (cartProducts.length > 0) {
-    const isFound = cartProducts.some(product => product.id === id);
+    const isFound = cartProducts.some(
+      (product: CartProductsType) => product.id === id
+    );
             setIsAddedToCart(isFound);
+}
+else {
+     setIsAddedToCart(false);
 }
     }
     useEffect(() => {
       checkIfAddedToCart();
-    }, [cartProducts]);
+    }, [cartProducts, isButtonClicked]);
   // function to add to or remove from cart
   const cartHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); // Prevent the default anchor behavior
     e.stopPropagation();
+    setIsButtonClicked(!isButtonClicked)
     if(isAddedToCart) {
         dispatch(removeFromCart(cartPropsObj));
+        toast({
+        description: "Removed from cart",
+      });
     } else {
         dispatch(addToCart(cartPropsObj));
-    }
       toast({
-        description: `${isAddedToCart ? "Removed from " : "Added to"} cart`,
+        description: "Added to cart",
       });
+    }
+    //   toast({
+    //     description: `${isAddedToCart ? "Removed from " : "Added to"} cart`,
+    //   });
   };
 
   return (
@@ -70,7 +83,7 @@ function DataCard({ id, price, name, api_featured_image }: ProductsDataType) {
           <p className="text-sm">$ {cartPropsObj.price}</p>
         </CardContent>
         <CardFooter className="px-0 py-2">
-          <Button className=" flex items-center flex-wap max-w-full" onClick={cartHandler}>
+          <Button className=" flex items-center text-sm  flex-wap max-w-full" onClick={cartHandler}>
             {isAddedToCart ? "Remove from" : "Add to "} cart{" "}
             <FontAwesomeIcon icon={faShoppingCart} className="pl-1" />
           </Button>

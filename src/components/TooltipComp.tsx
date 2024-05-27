@@ -16,7 +16,7 @@ import React, { useState, useEffect } from "react";
   removeBookmark,
 } from "@/features/bookmarkSlice";
 import { useAppDispatch, useAppSelector } from "@/features/Hooks";
-import type { CartProductsType, ProductsDataType } from "@/clientComps/HomeState";
+import type { ProductsDataType } from "@/clientComps/HomeState";
 
 function TooltipComp({
   productId,

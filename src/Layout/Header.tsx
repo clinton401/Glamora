@@ -19,8 +19,8 @@ function Header() {
     },
     {
       id: 2,
-      name: "Products",
-      path: "/products",
+      name: "About",
+      path: "/about",
     },
     {
       id: 3,

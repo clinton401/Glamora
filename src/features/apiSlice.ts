@@ -9,9 +9,11 @@ export const productsApi = createApi({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query: () => "products.json",
+      keepUnusedDataFor: 300, // Cache the data for 5 minutes
     }),
     getSpecificProducts: builder.query({
       query: (product_type) => `products.json?product_type=${product_type}`,
+      keepUnusedDataFor: 300, // Cache the data for 5 minutes
     }),
   }),
 });

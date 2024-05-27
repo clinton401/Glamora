@@ -7,13 +7,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button"
 import MobileModeToggle from "./MobileModeToggle";
-import { useRouter } from "next/navigation";
 
+import useNavigationUtil from "@/utils/navigation-utils";
 export function ModeToggle() {
-  const router = useRouter()
-  function routeHandler() {
-    router.push("/search");
-  }
+  const routeHandler = useNavigationUtil("/search")
 
   return (
     <div className="flex items-center gap-8 justify-center">

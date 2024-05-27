@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/card";
 import MotionComp from "@/components/MotionComp";
 import { InputWithButton } from "@/components/InputWithButton";
+import Spinner from "@/components/Spinner";
 export  const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair-display',
@@ -75,6 +76,7 @@ export default function Home() {
  
   return (
     <main className="w-full overflow-x-hidden px-[5%]  min-h-[2000px] pt-[80px] desktop:pt-[100px] pb-[50px]">
+    
       <section className="flex  justify-between w-full pb-12  flex-wrap items-center">
         <MotionComp
           className="w-[45%] hidden desktop:block relative overflow-hidden rounded-md max-h-[450px] aspect-[1/0.8] "
