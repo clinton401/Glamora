@@ -17,14 +17,14 @@ function DataCard({ id, price, name, api_featured_image }: ProductsDataType) {
   const dispatch = useAppDispatch();
   const cartProducts = useAppSelector(selectCart);
   const { toast } = useToast();
-  console.log({cartProducts});
+  // const randomPrice = Math.floor(Math.random() * 20) + 1;
   const cartPropsObj = {
     id,
     price: price && price !== "0.0" ? Number(price) : 10,
     name,
     api_featured_image,
     quantity: 1,
-    };
+  };
   const tooltipObj = {
     id,
     price,
@@ -67,23 +67,25 @@ else {
     //     description: `${isAddedToCart ? "Removed from " : "Added to"} cart`,
     //   });
   };
+  
 
   return (
-    <Link href={`/details/${id}`} className="relative w-full">
+    <Link href={`/details/${id}`} className="relative card_link outline-none w-full">
       <TooltipComp productId={id} tooltipObj={tooltipObj} />
-      <Card className="w-full hover:bg-secondary border-primary p-2 font-bold transition-all ease-in duration-300 ">
+      <Card className="w-full hover:bg-secondary  border-primary p-2 card font-bold transition-all ease-in duration-300 ">
         <CardHeader className="p-0   my-0 mx-auto relative w-full aspect-[1/0.7] rounded-md mb-3">
           <ImagesComp
             imgSrc={`https:${api_featured_image}`}
             alt={`${name} image`}
           />
+          
         </CardHeader>
         <CardContent className="px-0 py-1">
           <h2 className="text-base truncate ">{name}</h2>
           <p className="text-sm">$ {cartPropsObj.price}</p>
         </CardContent>
         <CardFooter className="px-0 py-2">
-          <Button className=" flex items-center text-sm  flex-wap max-w-full" onClick={cartHandler}>
+          <Button className=" flex items-center text-sm card_footer_btn  flex-wap max-w-full" onClick={cartHandler}>
             {isAddedToCart ? "Remove from" : "Add to "} cart{" "}
             <FontAwesomeIcon icon={faShoppingCart} className="pl-1" />
           </Button>

@@ -8,9 +8,28 @@ import DataCard from "@/components/DataCard";
 import { Button } from "@/components/ui/button";
 import type { ProductsDataType } from "@/clientComps/HomeState";
 import useNavigationUtil from "@/utils/navigation-utils";
+import { useEffect } from "react";
 function BookmarkPage() {
      const bookmarkedProducts = useAppSelector(selectBookmark);
-    const routeHandler = useNavigationUtil("/")
+  const routeHandler = useNavigationUtil("/");
+   useEffect(() => {
+     document.title = "Bookmark Page | Glamora";
+     const metaDescription = document.querySelector('meta[name="description"]');
+
+     const descriptionContent =
+       bookmarkedProducts && bookmarkedProducts.length > 0
+         ? `You have ${bookmarkedProducts.length} bookmarked items.`
+         : "No bookmarks available.";
+
+     if (metaDescription) {
+       metaDescription.setAttribute("content", descriptionContent);
+     } else {
+       const newMetaDescription = document.createElement("meta");
+       newMetaDescription.name = "description";
+       newMetaDescription.content = descriptionContent;
+       document.head.appendChild(newMetaDescription);
+     }
+   }, [bookmarkedProducts]);
     return (
       <main className="min-h-dvh  bg-background px-[2.5%]  ">
         {bookmarkedProducts.length > 0 ? (

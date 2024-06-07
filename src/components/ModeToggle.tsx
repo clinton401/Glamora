@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button"
 import MobileModeToggle from "./MobileModeToggle";
 
 import useNavigationUtil from "@/utils/navigation-utils";
+
+import NavbarCartIcon from "@/clientComps/NavbarCartIcon";
 export function ModeToggle() {
   const routeHandler = useNavigationUtil("/search")
 
@@ -32,14 +34,7 @@ export function ModeToggle() {
         {/* </Link> */}
       </Button>
       <span className="flex items-center gap-2">
-        <Button asChild variant="outline" size="sm">
-          <Link href="/cart">
-            <FontAwesomeIcon
-              icon={faCartShopping}
-              className="h-4  aspect-square"
-            />
-          </Link>
-        </Button>
+       <NavbarCartIcon />
         <MobileModeToggle />
       </span>
     </div>

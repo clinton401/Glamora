@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import {
   rightAnimation,
-  leftAnimation,
   textAnimate,
   scaleAnimation,
   hiddenAnimation,
 } from "@/utils/framer-motion-utils";
 import eyeImage from '../../public/eye.png'
-import faceImage from '../../public/makeup.png'
-
+import faceImage from '../../public/makeup.png';
 
 import nailsImage from '../../public/nail-polish.png'
 import lipsImage from '../../public/lips.png'
-
+import Link from "next/link";
 import cosImage from "../../public/home cosmetic third.jpg";
 import HomeCarouselComp from "@/clientComps/HomeCarouselComp";
 
@@ -31,7 +29,6 @@ import {
 } from "@/components/ui/card";
 import MotionComp from "@/components/MotionComp";
 import { InputWithButton } from "@/components/InputWithButton";
-import Spinner from "@/components/Spinner";
 export  const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair-display',
@@ -48,35 +45,38 @@ export default function Home() {
       description:
         "Elevate your look with our face cosmetics. Flawless foundations, radiant blushes, and highlighters bring out your natural glow for a stunning finish.",
       url: faceImage,
-      name: "Face"
+      name: "Face",
+      path: "blush"
     },
     {
       id: 2,
       description:
         "Enhance your gaze with our eye cosmetics. Bold liners and shimmering shadows transform your eyes with vibrant colors and luxurious finishes.",
       url: eyeImage,
-        name: "Eyes"
+        name: "Eyes",
+        path: "eyeliner"
     },
     {
       id: 3,
       description:
         "Enhance your lips with our cosmetics. From vibrant colors to luxurious finishes, our lipsticks and glosses make every smile unforgettable.",
       url: lipsImage,
-        name: "Lips"
+        name: "Lips",
+        path: "lipstick"
     },
     {
       id: 4,
       description:
         "Elevate your style with our nail cosmetics. From bold colors to chic designs, our nail polishes and treatments let you express yourself with every stroke.",
       url: nailsImage,
-        name: "Nails"
+        name: "Nails",
+        path: "nail_polish"
     },
   ];
  
  
   return (
-    <main className="w-full overflow-x-hidden px-[5%]  min-h-[2000px] pt-[80px] desktop:pt-[100px] pb-[50px]">
-    
+    <main className="w-full overflow-x-hidden px-[5%]  pt-[80px] desktop:pt-[100px] pb-[50px]">
       <section className="flex  justify-between w-full pb-12  flex-wrap items-center">
         <MotionComp
           className="w-[45%] hidden desktop:block relative overflow-hidden rounded-md max-h-[450px] aspect-[1/0.8] "
@@ -140,8 +140,10 @@ export default function Home() {
             variants={textAnimate}
             className="flex w-full gap-4 justify-center desktop:justify-start items-center"
           >
-            <Button>Shop Now</Button>
-            <Button variant="outline">Read More</Button>
+            <Button asChild>
+              <Link href={`/search`}>Shop Now</Link>
+            </Button>
+            {/* <Button variant="outline">Read More</Button> */}
           </MotionComp>
         </MotionComp>
         {/* <motion.div
@@ -205,9 +207,15 @@ export default function Home() {
                   <p className="text-sm ">{product.description}</p>
                 </CardContent>
                 <CardFooter className="flex w-full justify-end">
-                  <Button className="h-[30px]">
-                    <FontAwesomeIcon icon={faArrowRightLong} />
+                  <Button asChild className="h-[30px]">
+                    <Link href={`/search?filter=${product.path}`}>
+                      {" "}
+                      <FontAwesomeIcon icon={faArrowRightLong} />
+                    </Link>
                   </Button>
+                  {/* <Button className="h-[30px]">
+                    <FontAwesomeIcon icon={faArrowRightLong} />
+                  </Button> */}
                 </CardFooter>
               </Card>
             </MotionComp>

@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { playfair } from "@/app/page";
+import NavbarCartIcon from "@/clientComps/NavbarCartIcon";
 function Header() {
   const linksObject = [
     {
@@ -19,8 +20,8 @@ function Header() {
     },
     {
       id: 2,
-      name: "About",
-      path: "/about",
+      name: "Products",
+      path: "/search",
     },
     {
       id: 3,
@@ -77,14 +78,15 @@ function Header() {
               />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="sm">
+          <NavbarCartIcon />
+          {/* <Button asChild variant="outline" size="sm">
             <Link href="/cart">
               <FontAwesomeIcon
                 icon={faCartShopping}
                 className="h-4  aspect-square"
               />
             </Link>
-          </Button>
+          </Button> */}
         </span>
       </nav>
     </header>

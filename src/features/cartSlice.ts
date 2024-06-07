@@ -95,9 +95,8 @@ const cartSlice = createSlice({
              (product) => product.id === action.payload.id
            );
            if (filteredResult && filteredResult.price > 0 && filteredResult.quantity > 0) {
-             filteredResult.price -= filteredResult.price;
-               filteredResult.quantity -= 1;
-             state.total -= filteredResult.price;
+              filteredResult.quantity -= 1;
+              state.total -= filteredResult.price;
            }
            if (typeof window !== "undefined") {
              localStorage.setItem(

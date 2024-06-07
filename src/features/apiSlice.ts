@@ -15,7 +15,11 @@ export const productsApi = createApi({
       query: (product_type) => `products.json?product_type=${product_type}`,
       keepUnusedDataFor: 300, // Cache the data for 5 minutes
     }),
+    getProductDetails: builder.query({
+      query: (product_id) => `/products/${product_id}.json`,
+      keepUnusedDataFor: 300, // Cache the data for 5 minutes
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery, useGetSpecificProductsQuery } = productsApi;
+export const { useGetAllProductsQuery, useGetSpecificProductsQuery, useGetProductDetailsQuery } = productsApi;

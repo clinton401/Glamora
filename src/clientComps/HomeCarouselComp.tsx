@@ -18,7 +18,9 @@ import {
   useGetSpecificProductsQuery,
 } from "@/features/apiSlice";
 import { playfair } from "@/app/page";
-
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 function HomeCarouselComp({
   dataFetchingParam,
   title,
@@ -102,12 +104,24 @@ const getErrorMessage = (
       viewport={{ once: true, amount: 0.5 }}
       className="flex flex-col w-full pb-12 gap-6 items-center"
     >
-      <motion.h2
-        className={`text-2xl sm:text-3xl font-semibold ${playfair.variable} font-playfair`}
+      <motion.span
+        className="flex gap-x-2 gap-y-4 items-center w-full justify-between "
         variants={textAnimate}
       >
-        {title}
-      </motion.h2>
+        <motion.h2
+          className={`text-2xl sm:text-3xl font-semibold ${playfair.variable} font-playfair`}
+        >
+          {title}
+        </motion.h2>
+        <Link
+          href={
+            dataFetchingParam
+              ? `/search?filter=${dataFetchingParam}`
+              : "/search"
+          }
+          className=" hover:underline focus:underline"
+        >View more <FontAwesomeIcon icon={faArrowRight} className="pl-1 text-xs"/></Link>
+      </motion.span>
 
       <Carousel className="w-full">
         <CarouselContent>

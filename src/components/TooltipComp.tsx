@@ -21,9 +21,11 @@ import type { ProductsDataType } from "@/clientComps/HomeState";
 function TooltipComp({
   productId,
   tooltipObj,
+  detailsPg
 }: {
   productId: number;
   tooltipObj: ProductsDataType;
+  detailsPg?: boolean
 }) {
   const [isAddedToBookmark, setIsAddedToBookmark] = useState(false);
   const bookmarkedProducts = useAppSelector(selectBookmark);
@@ -64,7 +66,7 @@ function TooltipComp({
   };
 
   return (
-    <div className="absolute top-2 z-50 right-2">
+    <div className={`${!detailsPg ? 'absolute': ""} top-2 z-50 right-2`}>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
