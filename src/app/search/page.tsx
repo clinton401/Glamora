@@ -354,7 +354,7 @@ function SearchPage() {
           </div>
         )}
       </section>
-      <section className="w-full flex items-center justify-center py-16">
+      <section className="w-full flex items-center justify-center py-16" id="pagination_parent">
         <Stack spacing={2}>
           {!isLoading && isDataForCurrentPage && dataArray.length > 0 && (
             <Pagination

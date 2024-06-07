@@ -141,13 +141,13 @@ header ul a.active::after {
   }
 }
 
-.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root:hover {
+#pagination_parent .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root:hover {
 background: hsl(var(--secondary));
 }
-.css-1v2lvtn-MuiPaginationItem-root {
+#pagination_parent .css-1v2lvtn-MuiPaginationItem-root {
     color: hsl(var(--card-foreground));
 }
-.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root {
+#pagination_parent .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root {
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--card-foreground));
 }
