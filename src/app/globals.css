@@ -147,7 +147,7 @@ background: hsl(var(--secondary));
 #pagination_parent .css-1v2lvtn-MuiPaginationItem-root {
     color: hsl(var(--card-foreground));
 }
-#pagination_parent .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root {
+#pagination_parent .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root, #pagination_parent .css-21ve8j {
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--card-foreground));
 }
