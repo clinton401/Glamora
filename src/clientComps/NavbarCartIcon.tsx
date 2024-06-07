@@ -19,7 +19,7 @@ function NavbarCartIcon() {
     <Button asChild variant="outline" size="sm">
       <Link href="/cart" className="relative">
         {cartCount > 0 && (
-          <p className="h-4 flex items-center justify-center text-xs absolute rounded-full bg-primary aspect-square bottom-[70%] left-[70%]">
+          <p className="h-4 flex items-center justify-center text-xs z-10 absolute rounded-full bg-primary aspect-square bottom-[70%] left-[70%]">
             {cartCount}
           </p>
         )}

@@ -76,7 +76,7 @@ function HeaderMobileLinksComps({ linksObject }: {linksObject: LinksObjType[]}) 
       <>
           
       <button
-        className="absolute z-50 left-0 top-1/2 translate-y-[-50%]"
+        className="absolute z-50 left-0 top-1/2 z-[2000] translate-y-[-50%]"
         onClick={() => setNavOpen(!navOpen)}
       >
         <Hamburger toggled={isOpen} toggle={setOpen} size={25} rounded />
@@ -85,14 +85,14 @@ function HeaderMobileLinksComps({ linksObject }: {linksObject: LinksObjType[]}) 
       <AnimatePresence>
         {navOpen && (
           <motion.nav
-            className="fixed fixed_margin top-0 left-0 pt-[70px] max-w-[1800px]  flex items-center justify-center min-h-[400px] w-full h-dvh bg-background"
+            className="fixed fixed_margin top-0 left-0 pt-[70px] max-w-[1800px] z-[100] flex items-center justify-center min-h-[400px] w-full h-dvh bg-background"
             variants={containerVariant}
             initial="hidden"
             animate="visible"
             exit="exit"
             key="modal"
                   >
-                      <span className='absolute top-4  mobiletogglespan'>
+                      <span className='absolute top-4 z-50 mobiletogglespan'>
                         <MobileModeToggle />
                       </span>
                       <ul className=" w-full flex flex-col items-center justify-center gap-6 relative">

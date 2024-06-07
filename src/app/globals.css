@@ -151,6 +151,9 @@ background: hsl(var(--secondary));
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--card-foreground));
 }
+#pagination_parent .css-21ve8j.Mui-selected {
+  background-color: hsl(var(--secondary))
+}
 
 
 
