@@ -237,7 +237,7 @@ const cartHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
                 <FontAwesomeIcon icon={faPlus} />
               </Button>
             </span>
-            <Button className="flex-grow min-w-[170px] " onClick={cartHandler}>
+            <Button className="flex-grow min-w-[160px] " onClick={cartHandler}>
               {isAddedToCart ? "Remove from" : "Add to "} cart{" "}
               <FontAwesomeIcon icon={faShoppingCart} className="pl-1" />
             </Button>
@@ -261,7 +261,7 @@ const cartHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
                   return (
                     <div
                       key={skeletons}
-                      className="w-[48%] md:w-[23%] min-w-[170px] sm:w-[31%] desktop:w-[18%]"
+                      className="w-[48%] md:w-[23%] min-w-[160px] sm:w-[31%] desktop:w-[18%]"
                     >
                       <CardSkeleton />
                     </div>
@@ -275,7 +275,7 @@ const cartHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
                   return (
                     <div
                       key={data.id}
-                      className="w-[48%] md:w-[23%] min-w-[170px] sm:w-[31%] desktop:w-[18%]"
+                      className="w-[48%] md:w-[23%] min-w-[160px] sm:w-[31%] desktop:w-[18%]"
                     >
                       <DataCard
                         id={data.id}

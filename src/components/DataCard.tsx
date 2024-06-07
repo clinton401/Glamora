@@ -85,7 +85,7 @@ else {
           <p className="text-sm">$ {cartPropsObj.price}</p>
         </CardContent>
         <CardFooter className="px-0 py-2">
-          <Button className=" flex items-center text-sm card_footer_btn  flex-wap max-w-full" onClick={cartHandler}>
+          <Button className=" flex items-center text-xs card_footer_btn  flex-wap max-w-full" onClick={cartHandler}>
             {isAddedToCart ? "Remove from" : "Add to "} cart{" "}
             <FontAwesomeIcon icon={faShoppingCart} className="pl-1" />
           </Button>

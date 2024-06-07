@@ -34,13 +34,31 @@ import {
 import { playfair } from "@/app/page";
 import { Button } from "@/components/ui/button";
 import useNavigationUtil from "@/utils/navigation-utils";
+import { useEffect } from "react";
 function CartTable() {
     const cartProducts = useAppSelector(selectCart);
     const cartTotal = useAppSelector(selectCartTotal);
     const navigate = useNavigationUtil("/search");
     const {toast} = useToast();
        const dispatch = useAppDispatch();
+  useEffect(() => {
+     document.title = "Cart Page | Glamora";
+     const metaDescription = document.querySelector('meta[name="description"]');
 
+     const descriptionContent =
+       cartProducts && cartProducts.length > 0
+         ? `You have ${cartProducts.length} cart items.`
+         : "No Carts available.";
+
+     if (metaDescription) {
+       metaDescription.setAttribute("content", descriptionContent);
+     } else {
+       const newMetaDescription = document.createElement("meta");
+       newMetaDescription.name = "description";
+       newMetaDescription.content = descriptionContent;
+       document.head.appendChild(newMetaDescription);
+     }
+   }, [cartProducts]);
     const removeFromCartHandler = (cartPropsObj: CartProductsType) => {
   dispatch(removeFromCart(cartPropsObj));
         toast({

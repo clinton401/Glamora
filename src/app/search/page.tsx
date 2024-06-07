@@ -317,7 +317,7 @@ function SearchPage() {
               return (
                 <div
                   key={skeletons}
-                  className="w-[48%] md:w-[23%] min-w-[170px] sm:w-[31%] desktop:w-[18%]"
+                  className="w-[48%] md:w-[23%] min-w-[160px] sm:w-[31%] desktop:w-[18%]"
                 >
                   <CardSkeleton />
                 </div>
@@ -331,7 +331,7 @@ function SearchPage() {
               return (
                 <div
                   key={data.id}
-                  className="w-[48%] md:w-[23%] min-w-[170px] sm:w-[31%] desktop:w-[18%]"
+                  className="w-[48%] md:w-[23%] min-w-[160px] sm:w-[31%] desktop:w-[18%]"
                 >
                   <DataCard
                     id={data.id}
