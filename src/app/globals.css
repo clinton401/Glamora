@@ -153,7 +153,7 @@ background: hsl(var(--secondary));
 }
 #pagination_parent .css-21ve8j.Mui-selected {
   background-color: hsl(var(--foreground));
-   color: hsl(var(--card-foreground));
+   color: #ffffff;
 }
 
 
