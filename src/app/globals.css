@@ -144,7 +144,7 @@ header ul a.active::after {
 #pagination_parent .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root:hover {
 background: hsl(var(--secondary));
 }
-#pagination_parent .css-1v2lvtn-MuiPaginationItem-root {
+#pagination_parent .css-1v2lvtn-MuiPaginationItem-root, #pagination_parent .css-16y9h98 {
     color: hsl(var(--card-foreground));
 }
 #pagination_parent .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root, #pagination_parent .css-21ve8j {
