@@ -61,9 +61,10 @@ const cartSlice = createSlice({
       const filteredResult = state.cartProducts.filter(
         (product) => product.id !== action.payload.id
       );
+      const itemToBeRemoved = state.cartProducts.filter(product => product.id === action.payload.id)
         state.cartProducts = filteredResult;
          const newTotal =
-           state.total - (action.payload.price * action.payload.quantity);
+           state.total - (action.payload.price * itemToBeRemoved[0].quantity);
          state.total = newTotal;
          // checking if we are in a server component, if we aren't we store the data to local storage
          if (typeof window !== "undefined") {
